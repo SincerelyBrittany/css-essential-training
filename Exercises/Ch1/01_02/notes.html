@@ -1,0 +1,298 @@
+There are many ways to add css to your HTML document.
+
+External CSS File:
+To add your css to your file externally, you could create a css file:
+
+main.css
+
+Then within your HTML file you would add the following to your <head> tag
+
+<head>
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+
+Please note, that sometimes you may see:
+<head>
+  <link rel="stylesheet" href="/css/main.css" type="text/css">
+</head>
+
+The type was required in previoud HTML versions but is no longer required in HTML5
+
+Multiple External CSS files:
+There will be times when you need to reference multiple CSS documents. When that happens it is better to import your css file.
+
+So lets say you have the following css files.
+
+styles/layouts.css
+styles/fonts.css
+styles/buttons.css
+
+You would create a css file that imports all of those files like this:
+
+styles.css
+@import url('styles/layouts.css')
+@import url('styles/fonts.css')
+@import url('styles/buttons.css')
+
+Then within your HTML file you would add the following:
+<head>
+  <style>
+    @import url("css/styles.css");
+  </style>
+</head>
+
+This could affect page loading.
+
+@import is used with CSS Preprocessors like sass.
+
+The inline method is uses a style attribute which is added to the opening HTML tag like this:
+
+<p style="color:red;"> red Paragraph </p>
+
+SHould be used sparingly -- makes it hard to read. Also, inline overrides css document.
+
+Internal CSS:
+
+CSS is added between the style tag in the head of the document.
+<style>
+    html {
+      background: #018DED url(https://unsplash.it/1500/1000?image=881&blur=5);
+      background-size: cover;
+      font-family: 'helvetica neue';
+      text-align: center;
+      font-size: 10px;
+    }
+
+    body {
+      margin: 0;
+      font-size: 2rem;
+      display: flex;
+      flex: 1;
+      min-height: 100vh;
+      align-items: center;
+    }
+</style>
+
+Though it is better than inline, it is still inefficient. You would have to copy this blockinto each of your HTML files.
+
+
+Homepage always called index.html
+
+
+10 great tips to optimize images for the web:
+
+https://www.shopify.com/blog/7412852-10-must-know-image-optimization-tips
+
+Name your images descriptively and in plain language.
+Optimize your alt attributes carefully.
+Choose your image dimensions and product angles wisely.
+Reduce the file size of your images.
+Choose the right file type.
+Optimize your thumbnails.
+Use image sitemaps.
+Beware of decorative images.
+Use caution when using content delivery networks (CDNs).
+Test your images.
+
+APPLES RETINA DISPLAY: high pixel density screens
+Pixel density refers to the number of pixels within a space
+Measured in pixels per inch (PPI) or dots per inch (DPI)
+Retina displays have double the number of PPI/DPI. Meaning that Retina displays can fit two pixels within the same width and height of a non-Retina display.
+
+The more pixels there are within the same area, the smaller the pixels are, which is how text and images appear smoother, clearer and show more detail.
+
+A simple way to support Retina in non-Retina screens is to use an image twice the size.
+
+For example, if you use an image file that is 300 pixels wide then resize it to 150 pixels with css, you are essentially adding double the amount of pixels within the same dimension, just like Retina. For both Retina and non-retina screens, the image will display as 300 pixels wide.
+
+Absolute Path - refers t a resource located on a server. the entire url including the http must be referenced. - used for linking to pages outside yur yourwebsite
+Try to avoid Hotlinks : linking specific files such as images and embedding them into your own pages is called hotlinking.
+
+route relative path - a forward slash assumes that the url is the same as your current url is but you need to view your website on a local server during development.
+
+CSS - Cascading Style Sheets
+
+Check W3C for informtaion on CSS.
+
+CSS syntax and terminology
+
+A declaration block:
+
+img {
+  width: 300px;
+}
+
+** width:300px; is the declatration are the style rules
+
+** img is a selector
+** width is a property - style characteristics
+ 300px is a value
+
+
+
+ padding - longhand versus shorthand
+
+ padding-top: 10px;
+ padding-right: 5px;
+ padding-bottom: 10px;
+ padding-left: 5px;
+
+ versus
+
+ shorthand
+ padding: 10px 5px;
+
+ comments in css
+ /* magenta */
+
+ formatting and whitespace for better readability
+
+
+ codeguide.co
+
+
+LENGTH
+
+absolute length value are a fixed unit and always the same size -- regardless ofany other related element
+
+relative length are Relational sizing, not fixedand dependent upon values decalred in parent and ancestor elements.
+
+UNITLESS Values
+
+Some numeric values do not require a unit.
+
+
+Research CSS function values
+calc()
+background-img()
+
+Color property used often.
+http://colours.neilorangepeel.com
+
+RGB  - hexadecimal - prefixed with a number sign(#) followed by six characters (0-9 and A-F) to define the red, green, and blue values #rrggbb
+
+The hex value can also be abbreviated if the RGB values are the same
+examples
+#rgb = #rrggbb
+#f00; shorthand
+#ff0000; longhand
+#000; shorthand
+#000000; longhand
+
+rgb() is created with 3-comma-separated numbers between 0-255 or 0%-100%
+
+rgb (0,0,0) black
+rgb (0%,0%,0% ) black
+
+rgb (255,255,255) white
+rgb (100%,100%,100% ) white
+
+spaces not required but good for readability
+
+rgb() and rgba () -- use rgba and a fourth value to change the opacity
+
+rgb (0,0,0) black
+rgba (0,0,0,0) no opacity
+rgba (0,0,0,0.5) 50% opacity
+rgba (0,0,0,1) 100% opacity
+
+
+hsl() and hsla
+
+Defines a color by its hue, saturation, and lightness
+Also includes an optional alpha component
+
+ex: hue, saturation, lightness, alpha/opacity -- need a better understanding.
+hsl(270, 60%, 70%)
+hsla(270, 60%, 70%, 0.7)
+
+The hue is specified as an angle
+The value can be decalred with or without the degree unit.
+
+hsl(270, 60%, 70%)
+hsl(270deg, 60%, 70%)
+
+saturation is the second value and is represented with a percentage.
+100% is full saturation, 0% is gray
+
+hsl(270, 60%, 70%)
+hsl(270deg, 60%, 70%)
+
+lightness is the third value and also represented as a percentage
+100% = white, 0% = black, 50% = normal
+hsl(270, 60%, 70%)
+hsl(270deg, 60%, 70%)
+
+The alpha channel can be represented as a decimal or percentage:
+hsla(270, 60%, 50%, .15)
+hsla(270, 60%, 50%, 15%)
+
+Good tool for hsla colors:
+https://css-tricks.com/examples/HSLaExplorer/
+https://randoma11y.com/
+https://coolors.co/
+
+CSS selectors
+
+select a paragraph and change the text color to blue
+p{
+  color: blue;
+}
+
+select a link, nested in a list item, and remove the underline
+li a {
+  text-decoration: none;
+}
+
+
+Type selectors are the most basic kind of selectors, they match tohtml elements by using the html name without using the brackets
+
+Matches to ALL <h1> elements
+  h1{
+    . . . .
+  }
+
+
+  uiversal selector -- should use sparingly
+
+  *{
+    border
+  }
+
+  class and ID selectors
+  class selector: add the class attribute to the html document
+  <p class = "elegant"> elegant paragraph</p>
+  <p> regular paragraph</p>
+
+  in your css
+  .elegant{
+    color: red;
+  }
+
+  class selector: more than one class class attribute to the html document
+  <p class = "elegant intro"> elegant paragraph</p>
+  <p> regular paragraph</p>
+
+  in your css
+  .elegant{
+    color: red;
+  }
+
+  .intro{
+    color: red;
+  }
+
+  or to specify a style only when both classes are specified do the following:
+  .elegant.intro{
+    . . . . .
+  }
+
+
+  class selector: add the class attribute to the html document
+  <p id = "elegant"> elegant paragraph</p>
+  <p> regular paragraph</p>
+
+  in your css
+  #elegant{
+    color: red;
+  }
